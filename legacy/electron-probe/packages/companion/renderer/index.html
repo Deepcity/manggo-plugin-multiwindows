@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MultiWindows</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section id="setup-view" hidden>
+        <p class="eyebrow">MANGGO COMPANION</p>
+        <h1>连接 MultiWindows</h1>
+        <p class="muted">保持本程序运行，然后在 Manggo 的“新窗口翻译”动作设置中填入以下信息。</p>
+        <label for="endpoint">伴侣程序地址</label>
+        <div class="copy-row">
+          <input id="endpoint" readonly />
+          <button data-copy="endpoint">复制</button>
+        </div>
+        <label for="token">连接令牌</label>
+        <div class="copy-row">
+          <input id="token" type="password" readonly />
+          <button data-copy="token">复制</button>
+        </div>
+        <p class="hint">令牌仅保存在本机用户配置目录。请勿分享或提交到仓库。</p>
+        <div class="actions">
+          <button data-create-window>新建输入窗口</button>
+        </div>
+        <div class="status"><span></span>本机桥接服务运行中</div>
+      </section>
+
+      <section id="translation-view" hidden>
+        <header>
+          <div>
+            <p class="eyebrow">MULTIWINDOWS</p>
+            <h1>独立输入翻译</h1>
+          </div>
+          <button id="pin" class="icon-button" title="切换置顶">取消置顶</button>
+        </header>
+        <h2>输入原文</h2>
+        <textarea id="source-text" placeholder="输入或粘贴要翻译的文本"></textarea>
+        <div class="actions">
+          <button data-copy="source-text">复制原文</button>
+          <button data-create-window>新建窗口</button>
+          <button id="close">关闭窗口</button>
+        </div>
+        <h2>译文</h2>
+        <div class="translation-placeholder">窗口桥接已就绪。翻译服务商将在下一阶段接入。</div>
+      </section>
+      <p id="fatal" class="error" hidden></p>
+    </main>
+    <script src="renderer.js"></script>
+  </body>
+</html>

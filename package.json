@@ -1,0 +1,11 @@
+{
+  "name": "manggo-plugin-multiwindows",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Independent input translation windows for Manggo on Windows",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "npm run build:native",
+    "build:native": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/build-native.ps1"
+  }
+}

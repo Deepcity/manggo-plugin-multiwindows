@@ -1,0 +1,47 @@
+{
+  "manifestVersion": 1,
+  "id": "com.deepcity.manggo.multiwindows",
+  "name": "MultiWindows for Manggo",
+  "version": "0.1.0",
+  "description": "将选中文本发送到可独立输入和翻译的桌面窗口。",
+  "author": "Deepcity",
+  "homepage": "https://github.com/Deepcity/manggo-plugin-multiwindows",
+  "permissions": [
+    "network"
+  ],
+  "runtime": {
+    "kind": "bun",
+    "api": "manggo.plugin.v1",
+    "main": "main.js"
+  },
+  "services": [
+    {
+      "id": "open-in-new-window",
+      "kind": "action",
+      "displayName": "新窗口翻译",
+      "iconName": "open_in_new",
+      "precheck": "shouldShowAction",
+      "entry": "openInNewWindow",
+      "enabledByDefault": true,
+      "config": [
+        {
+          "key": "endpoint",
+          "label": "伴侣程序地址",
+          "control": "text",
+          "required": true,
+          "default": "http://127.0.0.1:47832",
+          "description": "仅允许本机回环地址；如未修改伴侣程序端口，请保留默认值。"
+        },
+        {
+          "key": "token",
+          "label": "连接令牌",
+          "control": "password",
+          "required": true,
+          "secret": true,
+          "placeholder": "在 MultiWindows 伴侣程序主窗口复制",
+          "description": "用于防止其他本机程序或网页随意创建翻译窗口。"
+        }
+      ]
+    }
+  ]
+}
